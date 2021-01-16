@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Study\\PM\\PMTasks\\Project_1\\Recipe_App\\Recipe_App.csproj",
+      "projectUniqueName": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\Recipe_App\\Recipe_App.csproj",
       "projectName": "Recipe_App",
-      "projectPath": "E:\\Study\\PM\\PMTasks\\Project_1\\Recipe_App\\Recipe_App.csproj",
+      "projectPath": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\Recipe_App\\Recipe_App.csproj",
       "packagesPath": "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\",
-      "outputPath": "E:\\Study\\PM\\PMTasks\\Project_1\\Recipe_App\\obj\\",
+      "outputPath": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\Recipe_App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ivan Zherybor\\AppData\\Roaming\\NuGet\\NuGet.Config",

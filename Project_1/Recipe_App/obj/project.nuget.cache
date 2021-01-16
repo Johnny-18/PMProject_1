@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "epsMqD1ZUfqaVofjNP/MAm3bRVsRyUnHiO3nCpVDEboceHeUsZ9dDovsuaqKf+CHx2EA8d/IZ/Jf+NB4AmRRZQ==",
+  "dgSpecHash": "cTVqtorrJy6HHxCOlsTbZcTDN7ROvDR9OvIShRf7UWgk0aOljZp5A8D34whvSRUCAusFdMq3tA0ES8tP4E1WoQ==",
   "success": true,
-  "projectFilePath": "E:\\Study\\PM\\PMTasks\\Project_1\\Recipe_App\\Recipe_App.csproj",
+  "projectFilePath": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\Recipe_App\\Recipe_App.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
