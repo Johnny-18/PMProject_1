@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Study\\PM\\PMTasks\\Project_1\\RecipeLibrary\\RecipeLibrary.csproj": {}
+    "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\RecipeLibrary\\RecipeLibrary.csproj": {}
   },
   "projects": {
-    "E:\\Study\\PM\\PMTasks\\Project_1\\RecipeLibrary\\RecipeLibrary.csproj": {
+    "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\RecipeLibrary\\RecipeLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Study\\PM\\PMTasks\\Project_1\\RecipeLibrary\\RecipeLibrary.csproj",
+        "projectUniqueName": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\RecipeLibrary\\RecipeLibrary.csproj",
         "projectName": "RecipeLibrary",
-        "projectPath": "E:\\Study\\PM\\PMTasks\\Project_1\\RecipeLibrary\\RecipeLibrary.csproj",
+        "projectPath": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\RecipeLibrary\\RecipeLibrary.csproj",
         "packagesPath": "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\",
-        "outputPath": "E:\\Study\\PM\\PMTasks\\Project_1\\RecipeLibrary\\obj\\",
+        "outputPath": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\RecipeLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivan Zherybor\\AppData\\Roaming\\NuGet\\NuGet.Config",

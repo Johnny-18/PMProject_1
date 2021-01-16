@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "E:\\Study\\PM\\PMTasks\\Project_1\\Recipe_App\\Recipe_App.csproj",
+    "projectUniqueName": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\Recipe_App\\Recipe_App.csproj",
     "projectName": "Recipe_App",
-    "projectPath": "E:\\Study\\PM\\PMTasks\\Project_1\\Recipe_App\\Recipe_App.csproj",
-    "outputPath": "E:\\Study\\PM\\PMTasks\\Project_1\\Recipe_App\\obj\\",
+    "projectPath": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\Recipe_App\\Recipe_App.csproj",
+    "outputPath": "E:\\Study\\PM\\SavingRecipesProject\\Project_1\\Recipe_App\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "net48"
