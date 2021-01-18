@@ -4,12 +4,16 @@ namespace RecipeLibrary.Interfaces
 {
     public interface IService<T>
     {
-        void Create(T obj);
+        void Add(T obj);
 
         void Delete(T obj);
 
-        List<T> GetAll();
+        void Delete(string name);
 
-        T Get(string searchStr = "");
+        void Update(string name, T newObj);
+
+        List<T> GetObjects(string name);
+
+        T GetObject(string name);
     }
 }
