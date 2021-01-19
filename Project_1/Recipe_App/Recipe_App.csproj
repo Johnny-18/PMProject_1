@@ -2,7 +2,19 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net48</TargetFramework>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <LangVersion>8</LangVersion>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RecipeLibrary\RecipeLibrary.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="recipes.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
 
 </Project>

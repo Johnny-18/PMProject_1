@@ -14,15 +14,30 @@ namespace RecipeLibrary.Services
         {
             if(obj == null)
                 throw new ArgumentNullException();
-            
-            var json = JsonSerializer.Serialize(obj);
-            File.WriteAllText(_path, json);
+
+            try
+            {
+                var json = JsonSerializer.Serialize(obj);
+                File.WriteAllText(_path, json);
+            }
+            catch
+            {
+                Console.WriteLine("Something wrong with file writing!");
+            }
         }
 
         public List<T> Deserialize<T>()
         {
-            var jsonFromFile = File.ReadAllText(_path);
-            return JsonSerializer.Deserialize<List<T>>(jsonFromFile);
+            try
+            {
+                var jsonFromFile = File.ReadAllText(_path);
+                return JsonSerializer.Deserialize<List<T>>(jsonFromFile);
+            }
+            catch
+            {
+                Console.WriteLine("Something wrong with file reading!");
+                return null;
+            }
         }
     }
 }

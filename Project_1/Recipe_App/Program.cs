@@ -1,4 +1,4 @@
-﻿using System;
+﻿using RecipeLibrary.Menu;
 
 namespace Recipe_App
 {
@@ -6,7 +6,8 @@ namespace Recipe_App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RecipeMenu menu = new RecipeMenu();
+            menu.Start();
         }
     }
 }
