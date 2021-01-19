@@ -67,13 +67,18 @@ namespace RecipeLibrary.Services
 
         public List<Recipe> GetObjects(string name)
         {
+            return GetObjects(name, null);
+        }
+
+        public List<Recipe> GetObjects(string name, FindSettings settings)
+        {
             if (name == null)
                 throw new ArgumentNullException();
             
             if (name == "")
-                return _recipes;
+                return UseFilter(_recipes, settings).ToList();
 
-            return _recipes.Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList();
+            return UseFilter(_recipes.Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList(), settings).ToList();
         }
 
         public Recipe GetObject(string name)
@@ -84,19 +89,20 @@ namespace RecipeLibrary.Services
             return _recipes.FirstOrDefault(x => x.Name == name);
         }
 
-        public List<Recipe> GetByIngredient(string searchStr)
+        public List<Recipe> GetByIngredient(string searchStr, FindSettings settings)
         {
             if (searchStr == null)
                 throw new ArgumentNullException();
 
             if (_recipes.Count == 0)
                 throw new NullReferenceException("Recipes list is empty!");
-
-            if (searchStr == "")
-                return _recipes.Where(x => x.Ingredients != null && x.Ingredients.Count != 0).ToList();
             
-            return _recipes.Where(x => x.Ingredients.Exists(y => y.Name.ToLower()
-                    .Contains(searchStr.ToLower()))).ToList();
+            if (searchStr == "")
+                return UseFilter(_recipes.Where(x => x.Ingredients != null && x.Ingredients.Count != 0).ToList(),
+                    settings).ToList();
+
+            return UseFilter(_recipes?.Where(x => x.Ingredients != null && x.Ingredients.Exists(y => y.Name
+                .ToLower().Contains(searchStr.ToLower()))).ToList(), settings).ToList();
         }
 
         public List<Recipe> SortListBySettings(List<Recipe> recipes, FindSettings settings)
@@ -128,14 +134,14 @@ namespace RecipeLibrary.Services
 
         private IEnumerable<Recipe> UseFilter(List<Recipe> recipes, FindSettings settings)
         {
-            if (settings.NutritionalValue != null)
+            if (settings?.FilterValue != null)
             {
                 if (settings.IsMore)
                 {
-                    return recipes.Where(x => x.NutritionalValue.CompareTo(settings.NutritionalValue) == 1);
+                    return recipes.Where(x => x.NutritionalValue.CompareTo(settings.FilterValue) == 1);
                 }
 
-                return recipes.Where(x => x.NutritionalValue.CompareTo(settings.NutritionalValue) == -1);
+                return recipes.Where(x => x.NutritionalValue.CompareTo(settings.FilterValue) == -1);
             }
 
             return recipes;
@@ -144,17 +150,17 @@ namespace RecipeLibrary.Services
         private List<Recipe> SorterByNutritionalValue(List<Recipe> recipes, FindSettings settings)
         {
             if(settings.IsAsc)
-                return UseFilter(recipes, settings).OrderBy(x => x.NutritionalValue.GetCalories()).ToList();
+                return recipes.OrderBy(x => x.NutritionalValue.GetCalories()).ToList();
             
-            return UseFilter(recipes, settings).OrderByDescending(x => x.NutritionalValue.GetCalories()).ToList();
+            return recipes.OrderByDescending(x => x.NutritionalValue.GetCalories()).ToList();
         }
 
         private List<Recipe> SortedByName(List<Recipe> recipes, FindSettings settings)
         {
             if(settings.IsAsc)
-                return UseFilter(recipes, settings).OrderBy(x => x.Name).ToList();
+                return recipes.OrderBy(x => x.Name).ToList();
             
-            return UseFilter(recipes, settings).OrderByDescending(x => x.Name).ToList();
+            return recipes.OrderByDescending(x => x.Name).ToList();
         }
 
         private int GetUniqueId()

@@ -2,9 +2,11 @@
 {
     public class FindSettings
     {
+        public string FindBy { get; set; }
+        
         public string SortedBy { get; set; }
         
-        public NutritionalValue NutritionalValue { get; set; }
+        public NutritionalValue FilterValue { get; set; }
 
         public bool IsAsc { get; set; }
         
