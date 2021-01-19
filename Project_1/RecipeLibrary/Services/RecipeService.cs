@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
 using RecipeLibrary.Interfaces;
 using RecipeLibrary.Models;
@@ -16,8 +15,8 @@ namespace RecipeLibrary.Services
         {
             _fw = new FileWorker();
             _recipes = _fw.Deserialize<Recipe>();
-            
-            if(_recipes == null)
+
+            if (_recipes == null)
                 _recipes = new List<Recipe>();
         }
 
@@ -50,7 +49,7 @@ namespace RecipeLibrary.Services
 
         public void Add(string name, List<Ingredient> ingredients, NutritionalValue nutritionalValue)
         {
-            Add(new Recipe(GetUniqueId(), name, ingredients, nutritionalValue));
+            Add(new Recipe(GetUniqueId(), name.TrimStart().TrimEnd(), ingredients, nutritionalValue));
         }
 
         public void Update(string name, Recipe newObj)
@@ -59,7 +58,7 @@ namespace RecipeLibrary.Services
             if (recipe == null)
                 throw new ArgumentException("Not found!");
 
-            recipe.Name = newObj.Name;
+            recipe.Name = newObj.Name.TrimStart().TrimEnd();
             recipe.Ingredients = newObj.Ingredients;
             recipe.NutritionalValue = newObj.NutritionalValue;
             
@@ -74,7 +73,7 @@ namespace RecipeLibrary.Services
             if (name == "")
                 return _recipes;
 
-            return _recipes.Where(x => x.Name == name).ToList();
+            return _recipes.Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList();
         }
 
         public Recipe GetObject(string name)
@@ -94,9 +93,10 @@ namespace RecipeLibrary.Services
                 throw new NullReferenceException("Recipes list is empty!");
 
             if (searchStr == "")
-                return _recipes;
+                return _recipes.Where(x => x.Ingredients != null && x.Ingredients.Count != 0).ToList();
             
-            return _recipes.Where(x => x.Ingredients.Exists(y => y.Name == searchStr)).ToList();
+            return _recipes.Where(x => x.Ingredients.Exists(y => y.Name.ToLower()
+                    .Contains(searchStr.ToLower()))).ToList();
         }
 
         public List<Recipe> SortListBySettings(List<Recipe> recipes, FindSettings settings)

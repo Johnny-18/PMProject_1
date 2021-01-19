@@ -1,7 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <LangVersion>8</LangVersion>
+        <Nullable>disable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Source\recipes.json" />
+    </ItemGroup>
 
 </Project>

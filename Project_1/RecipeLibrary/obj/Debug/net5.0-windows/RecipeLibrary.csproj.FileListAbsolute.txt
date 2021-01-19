@@ -1,0 +1,12 @@
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\bin\Debug\net5.0-windows\RecipeLibrary.deps.json
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\bin\Debug\net5.0-windows\RecipeLibrary.dll
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\bin\Debug\net5.0-windows\ref\RecipeLibrary.dll
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\bin\Debug\net5.0-windows\RecipeLibrary.pdb
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\obj\Debug\net5.0-windows\RecipeLibrary.csprojAssemblyReference.cache
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\obj\Debug\net5.0-windows\RecipeLibrary.GeneratedMSBuildEditorConfig.editorconfig
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\obj\Debug\net5.0-windows\RecipeLibrary.AssemblyInfoInputs.cache
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\obj\Debug\net5.0-windows\RecipeLibrary.AssemblyInfo.cs
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\obj\Debug\net5.0-windows\RecipeLibrary.csproj.CoreCompileInputs.cache
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\obj\Debug\net5.0-windows\RecipeLibrary.dll
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\obj\Debug\net5.0-windows\ref\RecipeLibrary.dll
+E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\obj\Debug\net5.0-windows\RecipeLibrary.pdb
