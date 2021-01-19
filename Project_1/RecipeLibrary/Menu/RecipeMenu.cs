@@ -75,10 +75,12 @@ namespace RecipeLibrary.Menu
                 switch (input)
                 {
                     case "1":
-                        FindRecipesByName();
+                        _findSettings.FindBy = "name";
+                        FindRecipes();
                         break;
                     case "2":
-                        FindRecipesByIngredient();
+                        _findSettings.FindBy = "ingredient name";
+                        FindRecipes();
                         break;
                     case "3":
                         return;
@@ -89,17 +91,24 @@ namespace RecipeLibrary.Menu
             }
         }
         
-        private void FindRecipesByName()
+        private void FindRecipes()
         {
-            Console.WriteLine("Enter name:");
-            var searchStr = Console.ReadLine();
-
             try
             {
-                var recipes = _recipeService.GetObjects(searchStr.TrimEnd().TrimStart());
+                SetOrNoFilter();
+                
+                Console.WriteLine("Enter searching string:");
+                var searchStr = Console.ReadLine();
+                List<Recipe> recipes = null;
+
+                if (_findSettings.FindBy == "name")
+                    recipes = _recipeService.GetObjects(searchStr.TrimEnd().TrimStart(), _findSettings);
+                else if (_findSettings.FindBy == "ingredient name")
+                    recipes = _recipeService.GetByIngredient(searchStr.TrimEnd().TrimStart(), _findSettings);
+
                 if (recipes == null || recipes.Count == 0)
                 {
-                    Console.WriteLine("Not found!");
+                    NotFound();
                     return;
                 }
 
@@ -110,25 +119,62 @@ namespace RecipeLibrary.Menu
                 Console.WriteLine("Wrong entered value!");
             }
         }
-
-        private void FindRecipesByIngredient()
+        
+        private void SetOrNoFilter()
         {
-            try
+            _findSettings.FilterValue = null;
+            for (;;)
             {
-                Console.WriteLine("Enter ingredient name:");
-                var searchStr = Console.ReadLine();
-                var recipes = _recipeService.GetByIngredient(searchStr.TrimEnd().TrimStart());
-                if (recipes == null || recipes.Count == 0)
+                Console.WriteLine("Set filter by nutritional value?");
+                Console.WriteLine("1. Yes");
+                Console.WriteLine("2. No");
+                var input = Console.ReadLine();
+                switch (input)
                 {
-                    Console.WriteLine("Not found!");
-                    return;
+                    case "1":
+                        SetFilterSettings();
+                        return;
+                    case "2":
+                        return;
+                    default:
+                        PrintDefault();
+                        break;
                 }
-
-                PrintFoundRecipes(recipes);
             }
-            catch (NullReferenceException)
+        }
+
+        private void SetFilterSettings()
+        {
+            var proteins = GetDoubleNumberFromUser("Enter filter for proteins:");
+            var carbohydrates = GetDoubleNumberFromUser("Enter filter for carbohydrates:");
+            var fats = GetDoubleNumberFromUser("Enter filter for fats:");
+            
+            _findSettings.FilterValue = new NutritionalValue(proteins, fats, carbohydrates);
+            
+            SetMoreOrLess();
+        }
+
+        private void SetMoreOrLess()
+        {
+            for (;;)
             {
-                Console.WriteLine("Wrong entered value!");
+                Console.WriteLine("Are more or less than your filter value?");
+                Console.WriteLine("1. More");
+                Console.WriteLine("2. Less");
+                var input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1":
+                        _findSettings.IsMore = true;
+                        return;
+                    case "2":
+                        _findSettings.IsMore = false;
+                        return;
+                    default:
+                        PrintDefault();
+                        break;
+                }
             }
         }
 
@@ -137,7 +183,7 @@ namespace RecipeLibrary.Menu
             try
             {
                 Console.WriteLine($"Found {recipes.Count} elements!");
-                SetFindSettings();
+                SetSortSettings();
                 recipes = _recipeService.SortListBySettings(recipes, _findSettings);
                 
                 foreach (var recipe in recipes)
@@ -206,7 +252,7 @@ namespace RecipeLibrary.Menu
             }
         }
 
-        private void SetFindSettings()
+        private void SetSortSettings()
         {
             string input = "";
             while(input != "2")
@@ -219,7 +265,8 @@ namespace RecipeLibrary.Menu
                 switch (input)
                 {
                     case "1":
-                        SetSortSettings();
+                        _findSettings.SortedBy = SortedByWhat();
+                        _findSettings.IsAsc = AscendingOrDescending();
                         break;
                     case "2":
                         break;
@@ -228,62 +275,6 @@ namespace RecipeLibrary.Menu
                         break;
                 }
             }
-
-            _findSettings.NutritionalValue = null;
-            for (;;)
-            {
-                Console.WriteLine("Set filter by nutritional value?");
-                Console.WriteLine("1. Yes");
-                Console.WriteLine("2. No");
-                input = Console.ReadLine();
-                switch (input)
-                {
-                    case "1":
-                        SetFilterSettings();
-                        return;
-                    case "2":
-                        return;
-                    default:
-                        PrintDefault();
-                        break;
-                }
-            }
-        }
-
-        private void SetFilterSettings()
-        {
-            var proteins = GetDoubleNumberFromUser("Enter filter for proteins:");
-            var carbohydrates = GetDoubleNumberFromUser("Enter filter for carbohydrates:");
-            var fats = GetDoubleNumberFromUser("Enter filter for fats:");
-            
-            _findSettings.NutritionalValue = new NutritionalValue(proteins, fats, carbohydrates);
-            
-            for (;;)
-            {
-                Console.WriteLine("Are more or less than your filter value?");
-                Console.WriteLine("1. More");
-                Console.WriteLine("2. Less");
-                var input = Console.ReadLine();
-
-                switch (input)
-                {
-                    case "1":
-                        _findSettings.IsMore = true;
-                        return;
-                    case "2":
-                        _findSettings.IsMore = false;
-                        return;
-                    default:
-                        PrintDefault();
-                        break;
-                }
-            }
-        }
-
-        private void SetSortSettings()
-        {
-            _findSettings.SortedBy = SortedByWhat();
-            _findSettings.IsAsc = AscendingOrDescending();
         }
 
         private void CreateMenu()
@@ -381,7 +372,7 @@ namespace RecipeLibrary.Menu
                 }
                 if (recipe == null)
                 {
-                    Console.WriteLine($"Not found recipe with this name: {name}!");
+                    NotFound();
                     continue;
                 }
 
@@ -489,7 +480,7 @@ namespace RecipeLibrary.Menu
                     }
                 }
 
-                Console.WriteLine("Recipe not found!");
+                NotFound();
             }
             catch (NullReferenceException e)
             {
@@ -545,6 +536,11 @@ namespace RecipeLibrary.Menu
                 
                 Console.WriteLine("Value should not be empty!");
             }
+        }
+
+        private void NotFound()
+        {
+            Console.WriteLine("Not found!");
         }
 
         private void PrintDefault()

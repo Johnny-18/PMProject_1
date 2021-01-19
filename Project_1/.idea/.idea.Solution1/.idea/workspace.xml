@@ -36,14 +36,15 @@
       <option value="$PROJECT_DIR$/RecipeLibrary/Interfaces/IService.cs" />
       <option value="$PROJECT_DIR$/RecipeLibrary/Models/SearchFiltere.cs" />
       <option value="$PROJECT_DIR$/RecipeLibrary/Models/SearchFilter.cs" />
-      <option value="$PROJECT_DIR$/RecipeLibrary/Models/FindSettings.cs" />
       <option value="$PROJECT_DIR$/RecipeLibrary/Models/NutritionalValue.cs" />
       <option value="$PROJECT_DIR$/RecipeLibrary/Services/FileWorker.cs" />
       <option value="$PROJECT_DIR$/Recipe_App/Program.cs" />
-      <option value="$PROJECT_DIR$/RecipeLibrary/Services/RecipeService.cs" />
-      <option value="$PROJECT_DIR$/RecipeLibrary/Menu/RecipeMenu.cs" />
       <option value="$PROJECT_DIR$/RecipeLibrary/Models/Recipe.cs" />
       <option value="$PROJECT_DIR$/RecipeLibrary/Models/Ingredient.cs" />
+      <option value="$PROJECT_DIR$/Recipe_App/recipes.json" />
+      <option value="$PROJECT_DIR$/RecipeLibrary/Models/FindSettings.cs" />
+      <option value="$PROJECT_DIR$/RecipeLibrary/Menu/RecipeMenu.cs" />
+      <option value="$PROJECT_DIR$/RecipeLibrary/Services/RecipeService.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1n9YFPWyCk4ahpxi51tlDC48ne2" />
@@ -97,7 +98,8 @@
       <workItem from="1610998525528" duration="3473000" />
       <workItem from="1611053086719" duration="159000" />
       <workItem from="1611055979901" duration="7062000" />
-      <workItem from="1611083841230" duration="7923000" />
+      <workItem from="1611083841230" duration="8077000" />
+      <workItem from="1611092183035" duration="2448000" />
     </task>
     <servers />
   </component>
@@ -105,50 +107,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/RecipeLibrary/Menu/RecipeMenu.cs</url>
-          <line>98</line>
-          <properties documentPath="E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\Menu\RecipeMenu.cs" initialLine="105" containingFunctionPresentation="method 'FindRecipesByName'">
-            <startOffsets>
-              <option value="2849" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2922" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/RecipeLibrary/Menu/RecipeMenu.cs</url>
-          <line>303</line>
-          <properties documentPath="E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\Menu\RecipeMenu.cs" initialLine="258" containingFunctionPresentation="method 'CreateMenu'">
-            <startOffsets>
-              <option value="9442" />
-            </startOffsets>
-            <endOffsets>
-              <option value="9504" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/RecipeLibrary/Menu/RecipeMenu.cs</url>
-          <line>467</line>
-          <properties documentPath="E:\Study\PM\SavingRecipesProject\Project_1\RecipeLibrary\Menu\RecipeMenu.cs" initialLine="467" containingFunctionPresentation="method 'DeleteRecipe'">
-            <startOffsets>
-              <option value="14678" />
-            </startOffsets>
-            <endOffsets>
-              <option value="14722" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
